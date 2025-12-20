@@ -6,95 +6,126 @@
     <title>Kush Vadhaiya - Resume</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#2563eb',
-                        secondary: '#1e40af',
-                        accent: '#3b82f6',
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        },
                         dark: '#0f172a',
                         light: '#f8fafc'
                     },
                     fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
                         heading: ['Space Grotesk', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'card': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
+                        'hover': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 15px 10px -6px rgba(0, 0, 0, 0.05)'
                     }
                 }
             }
         }
     </script>
     <style>
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #cbd5e1, transparent);
+            margin: 1.5rem 0;
+        }
         .tag {
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
         .tag:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
-        .section-divider {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #2563eb, transparent);
-        }
-        .project-card {
+        .project-card, .experience-card {
             transition: all 0.3s ease;
             border-left: 3px solid transparent;
         }
-        .project-card:hover {
-            border-left-color: #2563eb;
-            transform: translateX(5px);
+        .project-card:hover, .experience-card:hover {
+            border-left-color: #3b82f6;
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 15px 10px -6px rgba(0, 0, 0, 0.05);
         }
         .skill-tag {
             transition: all 0.2s ease;
         }
         .skill-tag:hover {
-            background-color: #2563eb;
+            background-color: #3b82f6;
             color: white;
+        }
+        .contact-item:hover {
+            color: #3b82f6;
+        }
+        .header-bg {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+        }
+        .badge {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-50 to-blue-50 font-sans text-gray-800">
-    <div class="max-w-5xl mx-auto px-4 py-8">
+<body class="bg-slate-50 font-sans text-gray-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
         <!-- Header Section -->
-        <header class="text-center py-10 relative">
-            <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-r from-primary to-secondary rounded-b-3xl opacity-10"></div>
-            <div class="relative z-10">
-                <h1 class="text-4xl md:text-5xl font-bold font-heading text-dark mb-2">Kush Vadhaiya</h1>
-                <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-600 mb-6">
-                    <div class="flex items-center">
-                        <i class="fas fa-phone-alt mr-2 text-primary"></i>
-                        <span>+91-9909765957</span>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-envelope mr-2 text-primary"></i>
-                        <a href="mailto:kush@example.com" class="hover:text-primary transition">Email</a>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fab fa-linkedin mr-2 text-primary"></i>
-                        <a href="#" class="hover:text-primary transition">LinkedIn</a>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fab fa-github mr-2 text-primary"></i>
-                        <a href="#" class="hover:text-primary transition">GitHub</a>
+        <header class="header-bg rounded-2xl shadow-sm p-8 mb-10">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-bold font-heading text-dark mb-2">Kush Vadhaiya</h1>
+                    <p class="text-lg text-gray-600 mb-4">Full-Stack Developer & Machine Learning Enthusiast</p>
+                    <div class="flex flex-wrap gap-4 text-gray-600">
+                        <div class="flex items-center contact-item">
+                            <i class="fas fa-phone-alt mr-2 text-primary-600"></i>
+                            <span>+91-9909765957</span>
+                        </div>
+                        <div class="flex items-center contact-item">
+                            <i class="fas fa-envelope mr-2 text-primary-600"></i>
+                            <a href="mailto:kush@example.com" class="hover:text-primary-600 transition">kush.vadhaiya@email.com</a>
+                        </div>
+                        <div class="flex items-center contact-item">
+                            <i class="fab fa-linkedin mr-2 text-primary-600"></i>
+                            <a href="#" class="hover:text-primary-600 transition">linkedin.com/in/kushvadhaiya</a>
+                        </div>
+                        <div class="flex items-center contact-item">
+                            <i class="fab fa-github mr-2 text-primary-600"></i>
+                            <a href="#" class="hover:text-primary-600 transition">github.com/kushvadhaiya</a>
+                        </div>
                     </div>
                 </div>
-                <div class="flex flex-wrap justify-center gap-2 mt-4">
-                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">Full-Stack Developer</span>
-                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">Machine Learning</span>
-                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">.NET MVC</span>
-                    <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">MERN Stack</span>
+                <div class="mt-6 md:mt-0">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="badge text-white px-3 py-1 rounded-full text-sm font-medium">Full-Stack</span>
+                        <span class="badge text-white px-3 py-1 rounded-full text-sm font-medium">Machine Learning</span>
+                        <span class="badge text-white px-3 py-1 rounded-full text-sm font-medium">.NET MVC</span>
+                        <span class="badge text-white px-3 py-1 rounded-full text-sm font-medium">MERN Stack</span>
+                    </div>
                 </div>
             </div>
         </header>
 
         <!-- Summary Section -->
-        <section class="mb-12 bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
-            <h2 class="text-2xl font-bold font-heading text-primary mb-4 flex items-center">
-                <i class="fas fa-user mr-3"></i>Professional Summary
-            </h2>
-            <div class="section-divider mb-4"></div>
+        <section class="mb-12 bg-white rounded-2xl shadow-card p-8">
+            <div class="flex items-center mb-4">
+                <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center mr-3">
+                    <i class="fas fa-user text-primary-600"></i>
+                </div>
+                <h2 class="text-2xl font-bold font-heading text-dark">Professional Summary</h2>
+            </div>
+            <div class="section-divider"></div>
             <p class="text-gray-700 leading-relaxed">
                 Ambitious Computer Science and Engineering student with strong full-stack development expertise and a growing specialization in machine learning. 
                 Proficient in HTML, CSS, JavaScript, .NET MVC, Node.js, React, MongoDB, Express, and Python, with hands-on experience building scalable web applications 
@@ -105,51 +136,62 @@
 
         <!-- Skills Section -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold font-heading text-primary mb-4 flex items-center">
-                <i class="fas fa-code mr-3"></i>Technical Skills
-            </h2>
-            <div class="section-divider mb-6"></div>
+            <div class="flex items-center mb-6">
+                <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center mr-3">
+                    <i class="fas fa-code text-primary-600"></i>
+                </div>
+                <h2 class="text-2xl font-bold font-heading text-dark">Technical Skills</h2>
+            </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="bg-white rounded-xl shadow p-4 border border-gray-100">
-                    <h3 class="font-bold text-gray-700 mb-3">Frontend</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-2xl shadow-card p-6">
+                    <h3 class="font-bold text-gray-800 text-lg mb-4 flex items-center">
+                        <i class="fas fa-laptop-code text-primary-600 mr-2"></i>Frontend & UI
+                    </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">HTML/CSS</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">JavaScript</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">React</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">Bootstrap</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">EJS</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">HTML/CSS</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">JavaScript</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">React</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">Bootstrap</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">EJS</span>
                     </div>
                 </div>
                 
-                <div class="bg-white rounded-xl shadow p-4 border border-gray-100">
-                    <h3 class="font-bold text-gray-700 mb-3">Backend</h3>
+                <div class="bg-white rounded-2xl shadow-card p-6">
+                    <h3 class="font-bold text-gray-800 text-lg mb-4 flex items-center">
+                        <i class="fas fa-server text-primary-600 mr-2"></i>Backend & Databases
+                    </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">Node.js</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">Express</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">.NET MVC</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">C#</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">JWT</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">Node.js</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">Express</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">.NET MVC</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">C#</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">SQL Server</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">MongoDB</span>
                     </div>
                 </div>
                 
-                <div class="bg-white rounded-xl shadow p-4 border border-gray-100">
-                    <h3 class="font-bold text-gray-700 mb-3">Databases</h3>
+                <div class="bg-white rounded-2xl shadow-card p-6">
+                    <h3 class="font-bold text-gray-800 text-lg mb-4 flex items-center">
+                        <i class="fas fa-database text-primary-600 mr-2"></i>Frameworks & Tools
+                    </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">SQL Server</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">MongoDB</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">Entity Framework</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">LINQ</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">Entity Framework</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">LINQ</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">JWT</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">RESTful APIs</span>
                     </div>
                 </div>
                 
-                <div class="bg-white rounded-xl shadow p-4 border border-gray-100">
-                    <h3 class="font-bold text-gray-700 mb-3">ML & Tools</h3>
+                <div class="bg-white rounded-2xl shadow-card p-6">
+                    <h3 class="font-bold text-gray-800 text-lg mb-4 flex items-center">
+                        <i class="fas fa-brain text-primary-600 mr-2"></i>Machine Learning
+                    </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">Python</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">TensorFlow</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">OpenCV</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">EfficientDet</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">Python</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">TensorFlow</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">OpenCV</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">EfficientDet</span>
                     </div>
                 </div>
             </div>
@@ -157,65 +199,94 @@
 
         <!-- Projects Section -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold font-heading text-primary mb-4 flex items-center">
-                <i class="fas fa-laptop-code mr-3"></i>Projects
-            </h2>
-            <div class="section-divider mb-6"></div>
+            <div class="flex items-center mb-6">
+                <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center mr-3">
+                    <i class="fas fa-laptop-code text-primary-600"></i>
+                </div>
+                <h2 class="text-2xl font-bold font-heading text-dark">Projects</h2>
+            </div>
             
             <div class="space-y-8">
                 <!-- Project 1 -->
-                <div class="project-card bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
-                    <div class="flex flex-wrap justify-between items-start mb-3">
+                <div class="project-card bg-white rounded-2xl shadow-card p-8">
+                    <div class="flex flex-wrap justify-between items-start mb-4">
                         <h3 class="text-xl font-bold text-dark">HR Management System</h3>
                         <div class="flex flex-wrap gap-2 mt-2 md:mt-0">
-                            <span class="tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">ASP.NET MVC</span>
-                            <span class="tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">SQL Server</span>
-                            <span class="tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Bootstrap</span>
+                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">ASP.NET MVC</span>
+                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">SQL Server</span>
+                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">Bootstrap</span>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-4">Developed a full-stack HR Management System with comprehensive employee management features.</p>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                        <li>Implemented employee management, attendance tracking, and leave request systems</li>
-                        <li>Role-based access control for Admin, HR, and Employees with secure authentication</li>
-                        <li>Built responsive UI with Razor views and integrated Entity Framework for database operations</li>
+                    <p class="text-gray-600 mb-5">Developed a full-stack HR Management System with comprehensive employee management features.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Implemented employee management, attendance tracking, and leave request systems</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Role-based access control for Admin, HR, and Employees with secure authentication</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Built responsive UI with Razor views and integrated Entity Framework for database operations</span>
+                        </li>
                     </ul>
                 </div>
                 
                 <!-- Project 2 -->
-                <div class="project-card bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
-                    <div class="flex flex-wrap justify-between items-start mb-3">
+                <div class="project-card bg-white rounded-2xl shadow-card p-8">
+                    <div class="flex flex-wrap justify-between items-start mb-4">
                         <h3 class="text-xl font-bold text-dark">Task Management System</h3>
                         <div class="flex flex-wrap gap-2 mt-2 md:mt-0">
-                            <span class="tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Node.js</span>
-                            <span class="tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Express</span>
-                            <span class="tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">MongoDB</span>
-                            <span class="tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">JWT</span>
+                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">Node.js</span>
+                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">Express</span>
+                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">MongoDB</span>
+                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">JWT</span>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-4">Built a task management web application with secure authentication and role-based access.</p>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                        <li>Implemented JWT authentication and role-based access control for secure task management</li>
-                        <li>Developed RESTful APIs for CRUD operations with MongoDB data storage</li>
-                        <li>Created user-friendly interface with EJS templating and task prioritization features</li>
+                    <p class="text-gray-600 mb-5">Built a task management web application with secure authentication and role-based access.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Implemented JWT authentication and role-based access control for secure task management</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Developed RESTful APIs for CRUD operations with MongoDB data storage</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Created user-friendly interface with EJS templating and task prioritization features</span>
+                        </li>
                     </ul>
                 </div>
                 
                 <!-- Project 3 -->
-                <div class="project-card bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
-                    <div class="flex flex-wrap justify-between items-start mb-3">
+                <div class="project-card bg-white rounded-2xl shadow-card p-8">
+                    <div class="flex flex-wrap justify-between items-start mb-4">
                         <h3 class="text-xl font-bold text-dark">Image Classification System</h3>
                         <div class="flex flex-wrap gap-2 mt-2 md:mt-0">
-                            <span class="tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Python</span>
-                            <span class="tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">TensorFlow</span>
-                            <span class="tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">OpenCV</span>
-                            <span class="tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">EfficientDet</span>
+                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">TensorFlow</span>
+                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">OpenCV</span>
+                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">EfficientDet</span>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-4">Developed an image classification model using advanced deep learning techniques.</p>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                        <li>Built classification model using EfficientDet architecture and TensorFlow framework</li>
-                        <li>Utilized OpenCV for data preprocessing, augmentation, and real-time image handling</li>
-                        <li>Achieved high accuracy through hyperparameter optimization and fine-tuning pretrained weights</li>
+                    <p class="text-gray-600 mb-5">Developed an image classification model using advanced deep learning techniques.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Built classification model using EfficientDet architecture and TensorFlow framework</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Utilized OpenCV for data preprocessing, augmentation, and real-time image handling</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>Achieved high accuracy through hyperparameter optimization and fine-tuning pretrained weights</span>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -223,56 +294,82 @@
 
         <!-- Experience Section -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold font-heading text-primary mb-4 flex items-center">
-                <i class="fas fa-briefcase mr-3"></i>Internship Experience
-            </h2>
-            <div class="section-divider mb-6"></div>
+            <div class="flex items-center mb-6">
+                <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center mr-3">
+                    <i class="fas fa-briefcase text-primary-600"></i>
+                </div>
+                <h2 class="text-2xl font-bold font-heading text-dark">Internship Experience</h2>
+            </div>
             
             <div class="space-y-8">
                 <!-- Experience 1 -->
-                <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
-                    <div class="flex flex-wrap justify-between items-start mb-3">
+                <div class="experience-card bg-white rounded-2xl shadow-card p-8">
+                    <div class="flex flex-wrap justify-between items-start mb-4">
                         <div>
                             <h3 class="text-xl font-bold text-dark">Software Intern</h3>
-                            <p class="text-primary font-medium">Tech Elecon Pvt Ltd. | Anand, India</p>
+                            <p class="text-primary-600 font-medium">Tech Elecon Pvt Ltd. | Anand, India</p>
                         </div>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">May 2024 - June 2024</span>
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">May 2024 - June 2024</span>
                     </div>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                        <li>Collaborated with development team to build web applications using .NET MVC, C#, and SQL Server</li>
-                        <li>Implemented CRUD operations and dynamic views with Razor and Entity Framework, improving data retrieval efficiency by 30%</li>
-                        <li>Contributed to database schema design and optimization, resulting in 25% performance boost</li>
-                        <li>Gained experience in debugging, version control, and ensuring high-quality code delivery</li>
+                    <ul class="space-y-3 mb-5">
+                        <li class="flex items-start">
+                            <i class="fas fa-chevron-circle-right text-primary-500 mt-1 mr-3"></i>
+                            <span>Collaborated with development team to build web applications using .NET MVC, C#, and SQL Server</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chevron-circle-right text-primary-500 mt-1 mr-3"></i>
+                            <span>Implemented CRUD operations and dynamic views with Razor and Entity Framework, improving data retrieval efficiency by 30%</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chevron-circle-right text-primary-500 mt-1 mr-3"></i>
+                            <span>Contributed to database schema design and optimization, resulting in 25% performance boost</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chevron-circle-right text-primary-500 mt-1 mr-3"></i>
+                            <span>Gained experience in debugging, version control, and ensuring high-quality code delivery</span>
+                        </li>
                     </ul>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">.NET MVC</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">C#</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">SQL Server</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">Entity Framework</span>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">.NET MVC</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">C#</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">SQL Server</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">Entity Framework</span>
                     </div>
                 </div>
                 
                 <!-- Experience 2 -->
-                <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
-                    <div class="flex flex-wrap justify-between items-start mb-3">
+                <div class="experience-card bg-white rounded-2xl shadow-card p-8">
+                    <div class="flex flex-wrap justify-between items-start mb-4">
                         <div>
                             <h3 class="text-xl font-bold text-dark">Software Intern</h3>
-                            <p class="text-primary font-medium">Nayara Energy | Dwarka, India</p>
+                            <p class="text-primary-600 font-medium">Nayara Energy | Dwarka, India</p>
                         </div>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">May 2025 - June 2025</span>
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">May 2025 - June 2025</span>
                     </div>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                        <li>Developed SIM Management System to streamline SIM allocation and tracking across organization</li>
-                        <li>Integrated employee data from Microsoft Active Directory and built secure backend APIs</li>
-                        <li>Created responsive React dashboard with role-based access for HR and Admin operations</li>
-                        <li>Optimized MongoDB queries and enterprise-level workflows in large-scale MERN stack development</li>
+                    <ul class="space-y-3 mb-5">
+                        <li class="flex items-start">
+                            <i class="fas fa-chevron-circle-right text-primary-500 mt-1 mr-3"></i>
+                            <span>Developed SIM Management System to streamline SIM allocation and tracking across organization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chevron-circle-right text-primary-500 mt-1 mr-3"></i>
+                            <span>Integrated employee data from Microsoft Active Directory and built secure backend APIs</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chevron-circle-right text-primary-500 mt-1 mr-3"></i>
+                            <span>Created responsive React dashboard with role-based access for HR and Admin operations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chevron-circle-right text-primary-500 mt-1 mr-3"></i>
+                            <span>Optimized MongoDB queries and enterprise-level workflows in large-scale MERN stack development</span>
+                        </li>
                     </ul>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">Node.js</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">Express</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">React</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">MongoDB</span>
-                        <span class="skill-tag bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">Active Directory</span>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">Node.js</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">Express</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">React</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">MongoDB</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">Active Directory</span>
                     </div>
                 </div>
             </div>
@@ -281,38 +378,44 @@
         <!-- Education & Certifications -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <!-- Education -->
-            <section class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
-                <h2 class="text-2xl font-bold font-heading text-primary mb-4 flex items-center">
-                    <i class="fas fa-graduation-cap mr-3"></i>Education
-                </h2>
-                <div class="section-divider mb-4"></div>
+            <section class="bg-white rounded-2xl shadow-card p-8">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center mr-3">
+                        <i class="fas fa-graduation-cap text-primary-600"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold font-heading text-dark">Education</h2>
+                </div>
+                <div class="section-divider"></div>
                 <div>
-                    <h3 class="text-lg font-bold text-dark">Bachelor of Technology (B.Tech)</h3>
-                    <p class="text-primary font-medium">Computer Science and Engineering</p>
+                    <h3 class="text-xl font-bold text-dark">Bachelor of Technology (B.Tech)</h3>
+                    <p class="text-primary-600 font-medium mt-1">Computer Science and Engineering</p>
                     <p class="text-gray-600">Devang Patel Institute of Advanced Technology and Research | Changa, India</p>
-                    <p class="text-gray-600 mt-2">June 2022 – Present | Current CGPA – 8.14/10.00</p>
+                    <p class="text-gray-600 mt-3">June 2022 – Present | Current CGPA – 8.14/10.00</p>
                 </div>
             </section>
             
             <!-- Certifications -->
-            <section class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
-                <h2 class="text-2xl font-bold font-heading text-primary mb-4 flex items-center">
-                    <i class="fas fa-certificate mr-3"></i>Certifications
-                </h2>
-                <div class="section-divider mb-4"></div>
-                <ul class="space-y-4">
+            <section class="bg-white rounded-2xl shadow-card p-8">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center mr-3">
+                        <i class="fas fa-certificate text-primary-600"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold font-heading text-dark">Certifications</h2>
+                </div>
+                <div class="section-divider"></div>
+                <ul class="space-y-5">
                     <li class="flex items-start">
-                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                        <i class="fas fa-medal text-yellow-500 mt-1 mr-3"></i>
                         <div>
-                            <h3 class="font-bold">Bharat Blockchain Yatra</h3>
-                            <p class="text-gray-600 text-sm">Participated in expert-led workshops on blockchain technology and DeFi</p>
+                            <h3 class="font-bold text-gray-800">Bharat Blockchain Yatra</h3>
+                            <p class="text-gray-600 text-sm mt-1">Participated in expert-led workshops on blockchain technology and DeFi</p>
                         </div>
                     </li>
                     <li class="flex items-start">
-                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                        <i class="fas fa-medal text-yellow-500 mt-1 mr-3"></i>
                         <div>
-                            <h3 class="font-bold">NPTEL Certificate</h3>
-                            <p class="text-gray-600 text-sm">Database Management Systems from IIT-based program</p>
+                            <h3 class="font-bold text-gray-800">NPTEL Certificate</h3>
+                            <p class="text-gray-600 text-sm mt-1">Database Management Systems from IIT-based program</p>
                         </div>
                     </li>
                 </ul>
@@ -320,8 +423,8 @@
         </div>
 
         <!-- Footer -->
-        <footer class="text-center py-6 text-gray-600 text-sm">
-            <p>© 2025 Kush Vadhaiya. All rights reserved.</p>
+        <footer class="text-center py-6 text-gray-500 text-sm border-t border-gray-200">
+            <p>© 2023 Kush Vadhaiya. All rights reserved.</p>
         </footer>
     </div>
 </body>
