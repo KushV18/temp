@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kush Vadhaiya - Resume</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -40,49 +43,192 @@
         }
     </script>
     <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
         .section-divider {
             height: 1px;
             background: linear-gradient(90deg, transparent, #cbd5e1, transparent);
             margin: 1.5rem 0;
         }
+
         .tag {
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         .tag:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.1);
         }
-        .project-card, .experience-card {
-            transition: all 0.3s ease;
+
+        .project-card,
+        .experience-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border-left: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
         }
-        .project-card:hover, .experience-card:hover {
+
+        .project-card::before,
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .project-card:hover::before,
+        .experience-card:hover::before {
+            left: 100%;
+        }
+
+        .project-card:hover,
+        .experience-card:hover {
             border-left-color: #3b82f6;
-            transform: translateY(-3px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 15px 10px -6px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
         }
+
         .skill-tag {
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
         }
+
         .skill-tag:hover {
-            background-color: #3b82f6;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
             color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
         }
+
+        .contact-item {
+            transition: all 0.3s ease;
+        }
+
         .contact-item:hover {
             color: #3b82f6;
+            transform: translateX(5px);
         }
+
         .header-bg {
-            background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 50%, #dbeafe 100%);
+            position: relative;
         }
+
+        .header-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23ffffff" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+
         .badge {
             background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            transform: scale(1.1);
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+
+            .fade-in-up,
+            .slide-in-left,
+            .slide-in-right {
+                animation-duration: 0.6s;
+            }
         }
     </style>
 </head>
+
 <body class="bg-slate-50 font-sans text-gray-800">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
         <!-- Header Section -->
-        <header class="header-bg rounded-2xl shadow-sm p-8 mb-10">
+        <header class="header-bg rounded-2xl shadow-sm p-8 mb-10 fade-in-up">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between">
                 <div>
                     <h1 class="text-4xl md:text-5xl font-bold font-heading text-dark mb-2">Kush Vadhaiya</h1>
@@ -94,7 +240,8 @@
                         </div>
                         <div class="flex items-center contact-item">
                             <i class="fas fa-envelope mr-2 text-primary-600"></i>
-                            <a href="mailto:kush@example.com" class="hover:text-primary-600 transition">kush.vadhaiya@email.com</a>
+                            <a href="mailto:kush@example.com"
+                                class="hover:text-primary-600 transition">kush.vadhaiya@email.com</a>
                         </div>
                         <div class="flex items-center contact-item">
                             <i class="fab fa-linkedin mr-2 text-primary-600"></i>
@@ -109,7 +256,8 @@
                 <div class="mt-6 md:mt-0">
                     <div class="flex flex-wrap gap-2">
                         <span class="badge text-white px-3 py-1 rounded-full text-sm font-medium">Full-Stack</span>
-                        <span class="badge text-white px-3 py-1 rounded-full text-sm font-medium">Machine Learning</span>
+                        <span class="badge text-white px-3 py-1 rounded-full text-sm font-medium">Machine
+                            Learning</span>
                         <span class="badge text-white px-3 py-1 rounded-full text-sm font-medium">.NET MVC</span>
                         <span class="badge text-white px-3 py-1 rounded-full text-sm font-medium">MERN Stack</span>
                     </div>
@@ -118,7 +266,7 @@
         </header>
 
         <!-- Summary Section -->
-        <section class="mb-12 bg-white rounded-2xl shadow-card p-8">
+        <section class="mb-12 bg-white rounded-2xl shadow-card p-8 slide-in-left">
             <div class="flex items-center mb-4">
                 <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center mr-3">
                     <i class="fas fa-user text-primary-600"></i>
@@ -127,97 +275,123 @@
             </div>
             <div class="section-divider"></div>
             <p class="text-gray-700 leading-relaxed">
-                Ambitious Computer Science and Engineering student with strong full-stack development expertise and a growing specialization in machine learning. 
-                Proficient in HTML, CSS, JavaScript, .NET MVC, Node.js, React, MongoDB, Express, and Python, with hands-on experience building scalable web applications 
-                and developing high-accuracy ML models using TensorFlow and OpenCV. Known for rapid learning, clean engineering practices, and a passion for creating 
+                Ambitious Computer Science and Engineering student with strong full-stack development expertise and a
+                growing specialization in machine learning.
+                Proficient in HTML, CSS, JavaScript, .NET MVC, Node.js, React, MongoDB, Express, and Python, with
+                hands-on experience building scalable web applications
+                and developing high-accuracy ML models using TensorFlow and OpenCV. Known for rapid learning, clean
+                engineering practices, and a passion for creating
                 innovative, user-centric solutions that bridge software development and intelligent automation.
             </p>
         </section>
 
         <!-- Skills Section -->
-        <section class="mb-12">
+        <section class="mb-12 slide-in-right">
             <div class="flex items-center mb-6">
                 <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center mr-3">
                     <i class="fas fa-code text-primary-600"></i>
                 </div>
                 <h2 class="text-2xl font-bold font-heading text-dark">Technical Skills</h2>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-white rounded-2xl shadow-card p-6">
                     <h3 class="font-bold text-gray-800 text-lg mb-4 flex items-center">
                         <i class="fas fa-laptop-code text-primary-600 mr-2"></i>Frontend & UI
                     </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">HTML/CSS</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">JavaScript</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">React</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">Bootstrap</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">EJS</span>
+                        <span
+                            class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">HTML/CSS</span>
+                        <span
+                            class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">JavaScript</span>
+                        <span
+                            class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">React</span>
+                        <span
+                            class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">Bootstrap</span>
+                        <span
+                            class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">EJS</span>
                     </div>
                 </div>
-                
+
                 <div class="bg-white rounded-2xl shadow-card p-6">
                     <h3 class="font-bold text-gray-800 text-lg mb-4 flex items-center">
                         <i class="fas fa-server text-primary-600 mr-2"></i>Backend & Databases
                     </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">Node.js</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">Express</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">.NET MVC</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">C#</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">SQL Server</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">MongoDB</span>
+                        <span
+                            class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">Node.js</span>
+                        <span
+                            class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">Express</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">.NET
+                            MVC</span>
+                        <span
+                            class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">C#</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">SQL
+                            Server</span>
+                        <span
+                            class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">MongoDB</span>
                     </div>
                 </div>
-                
+
                 <div class="bg-white rounded-2xl shadow-card p-6">
                     <h3 class="font-bold text-gray-800 text-lg mb-4 flex items-center">
                         <i class="fas fa-database text-primary-600 mr-2"></i>Frameworks & Tools
                     </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">Entity Framework</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">LINQ</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">JWT</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">RESTful APIs</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">Entity
+                            Framework</span>
+                        <span
+                            class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">LINQ</span>
+                        <span
+                            class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">JWT</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">RESTful
+                            APIs</span>
                     </div>
                 </div>
-                
+
                 <div class="bg-white rounded-2xl shadow-card p-6">
                     <h3 class="font-bold text-gray-800 text-lg mb-4 flex items-center">
                         <i class="fas fa-brain text-primary-600 mr-2"></i>Machine Learning
                     </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">Python</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">TensorFlow</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">OpenCV</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">EfficientDet</span>
+                        <span
+                            class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">Python</span>
+                        <span
+                            class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">TensorFlow</span>
+                        <span
+                            class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">OpenCV</span>
+                        <span
+                            class="skill-tag bg-primary-50 text-primary-700 px-3 py-1.5 rounded-full text-sm">EfficientDet</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section class="mb-12">
+        <section class="mb-12 fade-in-up">
             <div class="flex items-center mb-6">
                 <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center mr-3">
                     <i class="fas fa-laptop-code text-primary-600"></i>
                 </div>
                 <h2 class="text-2xl font-bold font-heading text-dark">Projects</h2>
             </div>
-            
+
             <div class="space-y-8">
                 <!-- Project 1 -->
                 <div class="project-card bg-white rounded-2xl shadow-card p-8">
                     <div class="flex flex-wrap justify-between items-start mb-4">
                         <h3 class="text-xl font-bold text-dark">HR Management System</h3>
                         <div class="flex flex-wrap gap-2 mt-2 md:mt-0">
-                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">ASP.NET MVC</span>
-                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">SQL Server</span>
-                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">Bootstrap</span>
+                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">ASP.NET
+                                MVC</span>
+                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">SQL
+                                Server</span>
+                            <span
+                                class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">Bootstrap</span>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-5">Developed a full-stack HR Management System with comprehensive employee management features.</p>
+                    <p class="text-gray-600 mb-5">Developed a full-stack HR Management System with comprehensive
+                        employee management features.</p>
                     <ul class="space-y-3">
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
@@ -225,31 +399,38 @@
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span>Role-based access control for Admin, HR, and Employees with secure authentication</span>
+                            <span>Role-based access control for Admin, HR, and Employees with secure
+                                authentication</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span>Built responsive UI with Razor views and integrated Entity Framework for database operations</span>
+                            <span>Built responsive UI with Razor views and integrated Entity Framework for database
+                                operations</span>
                         </li>
                     </ul>
                 </div>
-                
+
                 <!-- Project 2 -->
                 <div class="project-card bg-white rounded-2xl shadow-card p-8">
                     <div class="flex flex-wrap justify-between items-start mb-4">
                         <h3 class="text-xl font-bold text-dark">Task Management System</h3>
                         <div class="flex flex-wrap gap-2 mt-2 md:mt-0">
-                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">Node.js</span>
-                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">Express</span>
-                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">MongoDB</span>
+                            <span
+                                class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">Node.js</span>
+                            <span
+                                class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">Express</span>
+                            <span
+                                class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">MongoDB</span>
                             <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">JWT</span>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-5">Built a task management web application with secure authentication and role-based access.</p>
+                    <p class="text-gray-600 mb-5">Built a task management web application with secure authentication and
+                        role-based access.</p>
                     <ul class="space-y-3">
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span>Implemented JWT authentication and role-based access control for secure task management</span>
+                            <span>Implemented JWT authentication and role-based access control for secure task
+                                management</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
@@ -257,35 +438,44 @@
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span>Created user-friendly interface with EJS templating and task prioritization features</span>
+                            <span>Created user-friendly interface with EJS templating and task prioritization
+                                features</span>
                         </li>
                     </ul>
                 </div>
-                
+
                 <!-- Project 3 -->
                 <div class="project-card bg-white rounded-2xl shadow-card p-8">
                     <div class="flex flex-wrap justify-between items-start mb-4">
                         <h3 class="text-xl font-bold text-dark">Image Classification System</h3>
                         <div class="flex flex-wrap gap-2 mt-2 md:mt-0">
-                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">Python</span>
-                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">TensorFlow</span>
-                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">OpenCV</span>
-                            <span class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">EfficientDet</span>
+                            <span
+                                class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">Python</span>
+                            <span
+                                class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">TensorFlow</span>
+                            <span
+                                class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">OpenCV</span>
+                            <span
+                                class="tag bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">EfficientDet</span>
                         </div>
                     </div>
-                    <p class="text-gray-600 mb-5">Developed an image classification model using advanced deep learning techniques.</p>
+                    <p class="text-gray-600 mb-5">Developed an image classification model using advanced deep learning
+                        techniques.</p>
                     <ul class="space-y-3">
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span>Built classification model using EfficientDet architecture and TensorFlow framework</span>
+                            <span>Built classification model using EfficientDet architecture and TensorFlow
+                                framework</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span>Utilized OpenCV for data preprocessing, augmentation, and real-time image handling</span>
+                            <span>Utilized OpenCV for data preprocessing, augmentation, and real-time image
+                                handling</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
-                            <span>Achieved high accuracy through hyperparameter optimization and fine-tuning pretrained weights</span>
+                            <span>Achieved high accuracy through hyperparameter optimization and fine-tuning pretrained
+                                weights</span>
                         </li>
                     </ul>
                 </div>
@@ -293,14 +483,14 @@
         </section>
 
         <!-- Experience Section -->
-        <section class="mb-12">
+        <section class="mb-12 slide-in-left">
             <div class="flex items-center mb-6">
                 <div class="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center mr-3">
                     <i class="fas fa-briefcase text-primary-600"></i>
                 </div>
                 <h2 class="text-2xl font-bold font-heading text-dark">Internship Experience</h2>
             </div>
-            
+
             <div class="space-y-8">
                 <!-- Experience 1 -->
                 <div class="experience-card bg-white rounded-2xl shadow-card p-8">
@@ -309,34 +499,42 @@
                             <h3 class="text-xl font-bold text-dark">Software Intern</h3>
                             <p class="text-primary-600 font-medium">Tech Elecon Pvt Ltd. | Anand, India</p>
                         </div>
-                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">May 2024 - June 2024</span>
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">May 2024 - June
+                            2024</span>
                     </div>
                     <ul class="space-y-3 mb-5">
                         <li class="flex items-start">
                             <i class="fas fa-chevron-circle-right text-primary-500 mt-1 mr-3"></i>
-                            <span>Collaborated with development team to build web applications using .NET MVC, C#, and SQL Server</span>
+                            <span>Collaborated with development team to build web applications using .NET MVC, C#, and
+                                SQL Server</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-chevron-circle-right text-primary-500 mt-1 mr-3"></i>
-                            <span>Implemented CRUD operations and dynamic views with Razor and Entity Framework, improving data retrieval efficiency by 30%</span>
+                            <span>Implemented CRUD operations and dynamic views with Razor and Entity Framework,
+                                improving data retrieval efficiency by 30%</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-chevron-circle-right text-primary-500 mt-1 mr-3"></i>
-                            <span>Contributed to database schema design and optimization, resulting in 25% performance boost</span>
+                            <span>Contributed to database schema design and optimization, resulting in 25% performance
+                                boost</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-chevron-circle-right text-primary-500 mt-1 mr-3"></i>
-                            <span>Gained experience in debugging, version control, and ensuring high-quality code delivery</span>
+                            <span>Gained experience in debugging, version control, and ensuring high-quality code
+                                delivery</span>
                         </li>
                     </ul>
                     <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">.NET MVC</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">.NET
+                            MVC</span>
                         <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">C#</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">SQL Server</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">Entity Framework</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">SQL
+                            Server</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">Entity
+                            Framework</span>
                     </div>
                 </div>
-                
+
                 <!-- Experience 2 -->
                 <div class="experience-card bg-white rounded-2xl shadow-card p-8">
                     <div class="flex flex-wrap justify-between items-start mb-4">
@@ -344,39 +542,49 @@
                             <h3 class="text-xl font-bold text-dark">Software Intern</h3>
                             <p class="text-primary-600 font-medium">Nayara Energy | Dwarka, India</p>
                         </div>
-                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">May 2025 - June 2025</span>
+                        <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">May 2025 - June
+                            2025</span>
                     </div>
                     <ul class="space-y-3 mb-5">
                         <li class="flex items-start">
                             <i class="fas fa-chevron-circle-right text-primary-500 mt-1 mr-3"></i>
-                            <span>Developed SIM Management System to streamline SIM allocation and tracking across organization</span>
+                            <span>Developed SIM Management System to streamline SIM allocation and tracking across
+                                organization</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-chevron-circle-right text-primary-500 mt-1 mr-3"></i>
-                            <span>Integrated employee data from Microsoft Active Directory and built secure backend APIs</span>
+                            <span>Integrated employee data from Microsoft Active Directory and built secure backend
+                                APIs</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-chevron-circle-right text-primary-500 mt-1 mr-3"></i>
-                            <span>Created responsive React dashboard with role-based access for HR and Admin operations</span>
+                            <span>Created responsive React dashboard with role-based access for HR and Admin
+                                operations</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-chevron-circle-right text-primary-500 mt-1 mr-3"></i>
-                            <span>Optimized MongoDB queries and enterprise-level workflows in large-scale MERN stack development</span>
+                            <span>Optimized MongoDB queries and enterprise-level workflows in large-scale MERN stack
+                                development</span>
                         </li>
                     </ul>
                     <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">Node.js</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">Express</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">React</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">MongoDB</span>
-                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">Active Directory</span>
+                        <span
+                            class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">Node.js</span>
+                        <span
+                            class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">Express</span>
+                        <span
+                            class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">React</span>
+                        <span
+                            class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">MongoDB</span>
+                        <span class="skill-tag bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm">Active
+                            Directory</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Education & Certifications -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 slide-in-right">
             <!-- Education -->
             <section class="bg-white rounded-2xl shadow-card p-8">
                 <div class="flex items-center mb-4">
@@ -389,11 +597,12 @@
                 <div>
                     <h3 class="text-xl font-bold text-dark">Bachelor of Technology (B.Tech)</h3>
                     <p class="text-primary-600 font-medium mt-1">Computer Science and Engineering</p>
-                    <p class="text-gray-600">Devang Patel Institute of Advanced Technology and Research | Changa, India</p>
+                    <p class="text-gray-600">Devang Patel Institute of Advanced Technology and Research | Changa, India
+                    </p>
                     <p class="text-gray-600 mt-3">June 2022 – Present | Current CGPA – 8.14/10.00</p>
                 </div>
             </section>
-            
+
             <!-- Certifications -->
             <section class="bg-white rounded-2xl shadow-card p-8">
                 <div class="flex items-center mb-4">
@@ -408,7 +617,8 @@
                         <i class="fas fa-medal text-yellow-500 mt-1 mr-3"></i>
                         <div>
                             <h3 class="font-bold text-gray-800">Bharat Blockchain Yatra</h3>
-                            <p class="text-gray-600 text-sm mt-1">Participated in expert-led workshops on blockchain technology and DeFi</p>
+                            <p class="text-gray-600 text-sm mt-1">Participated in expert-led workshops on blockchain
+                                technology and DeFi</p>
                         </div>
                     </li>
                     <li class="flex items-start">
@@ -427,5 +637,41 @@
             <p>© 2023 Kush Vadhaiya. All rights reserved.</p>
         </footer>
     </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Scroll to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function () {
+            const scrollButton = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollButton.classList.add('show');
+            } else {
+                scrollButton.classList.remove('show');
+            }
+        });
+
+        // Trigger animations on load
+        window.addEventListener('load', function () {
+            const animatedElements = document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right');
+            animatedElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.animationDelay = '0s';
+                }, index * 200);
+            });
+        });
+    </script>
 </body>
+
 </html>
